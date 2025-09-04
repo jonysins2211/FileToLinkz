@@ -51,7 +51,7 @@ class Var:
     OWNER_USERNAME: str = os.getenv("OWNER_USERNAME", "")
 
     FQDN: str = os.getenv("FQDN", "") or BIND_ADDRESS
-    HAS_SSL: bool = str_to_bool(os.getenv("HAS_SSL", "False"))
+    HAS_SSL: bool = str_to_bool(os.getenv("HAS_SSL", "True"))
     PROTOCOL: str = "https" if HAS_SSL else "http"
     PORT_SEGMENT: str = "" if NO_PORT else f":{PORT}"
     URL: str = f"{PROTOCOL}://{FQDN}{PORT_SEGMENT}/"
@@ -87,3 +87,4 @@ class Var:
     SHORTEN_MEDIA_LINKS: bool = str_to_bool(os.getenv("SHORTEN_MEDIA_LINKS", "False"))
     URL_SHORTENER_API_KEY: str = os.getenv("URL_SHORTENER_API_KEY", "")
     URL_SHORTENER_SITE: str = os.getenv("URL_SHORTENER_SITE", "")
+
